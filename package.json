@@ -19,15 +19,16 @@
     "prop-types": "^15.5.8",
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "@ice/spec": "^0.1.1",
     "eslint": "^6.0.1",
-    "stylelint": "^10.1.0",
-    "ice-scripts": "^2.0.0",
     "ice-plugin-fusion": "^0.1.4",
-    "ice-plugin-moment-locales": "^0.1.0"
+    "ice-plugin-moment-locales": "^0.1.0",
+    "ice-scripts": "^2.0.0",
+    "stylelint": "^10.1.0"
   },
   "scripts": {
     "start": "ice-scripts dev",

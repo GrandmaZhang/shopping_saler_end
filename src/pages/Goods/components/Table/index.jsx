@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Button, Dialog } from '@alifd/next';
-import IceContainer from '@icedesign/container';
-import Filter from '../Filter';
-import styles from './index.module.scss';
+import React, { useState, useEffect, useCallback } from "react";
+import { Table, Button, Dialog } from "@alifd/next";
+import IceContainer from "@icedesign/container";
+import Filter from "../Filter";
+import styles from "./index.module.scss";
 import { postData, getData, handleGetParams } from "@/util";
 
 export default function GoodsTable() {
@@ -16,34 +16,36 @@ export default function GoodsTable() {
   const getTableData = (data = []) => {
     return data.map(item => {
       return {
-        ...item,
+        ...item
       };
     });
   };
 
-  const mockApi = (args) => {
+  const mockApi = args => {
     return new Promise(resolve => {
-      getData(handleGetParams("/get-all-items", { table: "goods", ...args })).then(
-        res => {
-          resolve(getTableData(res.data));
-        },
-      );
+      getData(
+        handleGetParams("/get-all-items", { table: "goods", ...args })
+      ).then(res => {
+        resolve(getTableData(res.data));
+      });
     });
   };
 
-  const fetchData = useCallback((args) => {
+  const fetchData = useCallback(args => {
     setLoading(true);
-    mockApi(args).then((mockData) => {
+    mockApi(args).then(mockData => {
       setData(mockData);
       setLoading(false);
     });
   });
 
-  const handleFilterChange = (e) => {
+  const handleFilterChange = e => {
     const args = e;
-    mockApi({params: JSON.stringify({
-      ...args,
-    })}).then(mockData => {
+    mockApi({
+      params: JSON.stringify({
+        ...args
+      })
+    }).then(mockData => {
       setData(mockData);
       setLoading(false);
     });
@@ -57,7 +59,7 @@ export default function GoodsTable() {
         postData("/delete-goods", { id: record.id }).then(() => {
           fetchData();
         });
-      },
+      }
     });
   };
 
@@ -79,7 +81,7 @@ export default function GoodsTable() {
       <IceContainer>
         <Table loading={isLoading} dataSource={data} hasBorder={false}>
           <Table.Column title="商品ID" dataIndex="id" />
-          <Table.Column title="商品名称" dataIndex="name" />
+          <Table.Column title="商品名称" dataIndex="name" width={550} />
           <Table.Column title="余量" dataIndex="remain" />
           <Table.Column title="价格" dataIndex="price" />
           <Table.Column title="总销量" dataIndex="sold" />
@@ -87,7 +89,7 @@ export default function GoodsTable() {
           <Table.Column title="商品分类" dataIndex="categoryId" />
           <Table.Column
             title="操作"
-            width={200}
+            // width={200}
             dataIndex="oper"
             cell={renderOper}
           />
