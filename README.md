@@ -1,4 +1,6 @@
-# admin-scaffold
+# shopping_saler_end
+
+购物网站商家订单管理系统
 
 ## 使用
 
@@ -20,7 +22,3 @@
 - 主色：#447eff
 - 功能主色：#5e83fb、#f7da47、#58ca9a、#ee706d
 - 字体颜色：#333、#666
-
-## 效果图
-
-![screenshot](https://img.alicdn.com/tfs/TB19NPDDcbpK1RjSZFyXXX_qFXa-2872-1580.png)
